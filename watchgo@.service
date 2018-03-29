@@ -1,0 +1,12 @@
+[Unit]
+Description=Arduino watchdog on %i
+BindTo=dev-%i.device
+After=dev-%i.device
+
+[Service]
+ExecStart=/usr/bin/watchgo /dev/%i
+Restart=always
+RestartSec=0
+
+[Install]
+WantedBy=multi-user.target
